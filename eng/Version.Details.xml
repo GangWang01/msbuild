@@ -42,5 +42,10 @@
       <Uri>https://github.com/dotnet/arcade</Uri>
       <Sha>2b9ccd49bbcca2156e229b00a140a8a018baac58</Sha>
     </Dependency>
+    <!-- Added manually - as System.Security.Cryptography.Pkcs is not darc subscribed -->
+    <Dependency Name="System.Security.Cryptography.Pkcs" Version="7.0.2">
+      <Uri>https://dev.azure.com/dnceng/internal/_git/dotnet-runtime</Uri>
+      <Sha>5b20af47d99620150c53eaf5db8636fdf730b126</Sha>
+    </Dependency>
   </ToolsetDependencies>
 </Dependencies>
