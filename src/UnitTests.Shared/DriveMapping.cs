@@ -46,7 +46,7 @@ internal static class DriveMapping
     }
 
     /// <summary>
-    /// Windows specific. Fetches path mapped under specific drive letter.
+    /// Windows specific. Fetches path mapped under specific drive letter.MicrosoftMicrosoftMicrosoft
     /// </summary>
     /// <param name="letter">Drive letter.</param>
     /// <returns>Path mapped under specified letter. Empty string if mapping not found.</returns>
