@@ -13,10 +13,6 @@ namespace Microsoft.Build.Tasks
 {
     internal abstract class RoslynCodeTaskFactoryCompilerBase : ToolTaskExtension
     {
-#if RUNTIME_TYPE_NETCORE
-        private static readonly string DotnetCliPath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-#endif
-
         private readonly Lazy<string> _executablePath;
 
         protected RoslynCodeTaskFactoryCompilerBase()
@@ -99,7 +95,22 @@ namespace Microsoft.Build.Tasks
             }
 
 #if RUNTIME_TYPE_NETCORE
-            return DotnetCliPath;
+            string getDotnetCliPath()
+            {
+                string dotnetCliPath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+
+                // For api-using application, get dotnet Cli path via environtment variable "MSBUILD_EXE_PATH" that is registered when using api.
+                // If the environtment variable is set, modify dotnet Cli path based on msbuild path.
+                string msbuildPath = Environment.GetEnvironmentVariable("MSBUILD_EXE_PATH");
+                if (!string.IsNullOrWhiteSpace(msbuildPath))
+                {
+                    dotnetCliPath = Path.Combine(msbuildPath, "../../dotnet.exe");
+                }
+
+                return dotnetCliPath;
+            }
+
+            return getDotnetCliPath();
 #else
             return _executablePath.Value;
 #endif
