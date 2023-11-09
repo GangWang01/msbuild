@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.Build.Tasks.ResourceHandling;
 using Microsoft.Build.Tasks.UnitTests.ResourceHandling;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;

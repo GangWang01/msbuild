@@ -8,7 +8,7 @@ using TaskItem = Microsoft.Build.Execution.ProjectItemInstance.TaskItem;
 
 #nullable disable
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     /// <summary>
     /// A class containing an extension to BuildEventArgs

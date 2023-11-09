@@ -21,7 +21,7 @@ using TempPaths = System.Collections.Generic.Dictionary<string, string>;
 
 #nullable disable
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     public partial class TestEnvironment : IDisposable
     {

@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Shared.FileSystem;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

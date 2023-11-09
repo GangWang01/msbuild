@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using Microsoft.Build.Evaluation;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

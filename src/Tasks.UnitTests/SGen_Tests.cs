@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Tasks;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using Xunit;
 

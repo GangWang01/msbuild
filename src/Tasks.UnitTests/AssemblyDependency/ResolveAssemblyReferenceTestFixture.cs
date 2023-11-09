@@ -11,6 +11,7 @@ using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Tasks;
 using Microsoft.Build.Tasks.AssemblyDependency;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Microsoft.Win32;
 using Xunit;
@@ -41,7 +42,7 @@ namespace Microsoft.Build.UnitTests.ResolveAssemblyReference_Tests
 #if FEATURE_WIN32_REGISTRY
         internal static Microsoft.Build.Shared.OpenBaseKey openBaseKey = new Microsoft.Build.Shared.OpenBaseKey(GetBaseKey);
 #endif
-        internal Microsoft.Build.UnitTests.MockEngine.GetStringDelegate resourceDelegate = new Microsoft.Build.UnitTests.MockEngine.GetStringDelegate(AssemblyResources.GetString);
+        internal Microsoft.Build.UnitTests.Shared.MockEngine.GetStringDelegate resourceDelegate = new Microsoft.Build.UnitTests.Shared.MockEngine.GetStringDelegate(AssemblyResources.GetString);
         internal static Microsoft.Build.Tasks.IsWinMDFile isWinMDFile = new Microsoft.Build.Tasks.IsWinMDFile(IsWinMDFile);
         internal static Microsoft.Build.Tasks.ReadMachineTypeFromPEHeader readMachineTypeFromPEHeader = new Microsoft.Build.Tasks.ReadMachineTypeFromPEHeader(ReadMachineTypeFromPEHeader);
 

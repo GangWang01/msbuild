@@ -9,6 +9,7 @@ using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using Xunit;
 using MuxLogger = Microsoft.Build.Utilities.MuxLogger;

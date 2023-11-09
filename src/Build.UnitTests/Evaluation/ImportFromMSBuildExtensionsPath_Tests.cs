@@ -9,6 +9,7 @@ using Microsoft.Build.Evaluation;
 using Microsoft.Build.Exceptions;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 using Xunit.NetCore.Extensions;
 

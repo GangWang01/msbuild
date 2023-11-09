@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using Xunit;
 using Xunit.NetCore.Extensions;
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     /// <summary>
     ///  This test should be run only on Windows, and when long path support is enabled.

@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Microsoft.CodeAnalysis.BuildTasks;
 using Xunit;

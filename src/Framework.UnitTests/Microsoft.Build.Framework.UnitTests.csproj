@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\Shared\FileSystemSources.proj" />
-  <Import Project="..\Shared\DebuggingSources.proj" />
 
   <PropertyGroup>
     <TargetFrameworks>$(RuntimeOutputTargetFrameworks)</TargetFrameworks>
@@ -9,6 +7,10 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <AssemblyName>Microsoft.Build.Framework.UnitTests</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="C:\Space\WS\fork\temp\msbuild\src\Shared\FileSystem\FileSystems.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" />
@@ -30,14 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\Shared\FileUtilities.cs" />
-    <Compile Include="..\Shared\TempFileUtilities.cs" />
-    <Compile Include="..\Shared\ErrorUtilities.cs" />
     <Compile Include="..\Shared\EscapingUtilities.cs" />
-    <Compile Include="..\Shared\BuildEnvironmentHelper.cs" />
     <Compile Include="..\Shared\ProcessExtensions.cs" />
-    <Compile Include="..\Shared\ResourceUtilities.cs" />
-    <Compile Include="..\Shared\ExceptionHandling.cs" />
     <Compile Include="..\Shared\FileUtilitiesRegex.cs" />
   </ItemGroup>
 

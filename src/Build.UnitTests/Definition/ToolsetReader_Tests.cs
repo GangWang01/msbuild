@@ -11,6 +11,7 @@ using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Internal;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Win32;
 
 #if FEATURE_WIN32_REGISTRY

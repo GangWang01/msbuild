@@ -6,6 +6,7 @@ using System.IO;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Shared;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.NetCore.Extensions;

@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using Microsoft.Build.Execution;
+using Microsoft.Build.UnitTests.Shared;
 
 using Shouldly;
 using Xunit;

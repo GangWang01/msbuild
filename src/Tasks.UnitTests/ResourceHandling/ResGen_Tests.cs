@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using Microsoft.Build.Framework;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Xunit;
 using ResGen = Microsoft.Build.Tasks.GenerateResource.ResGen;

@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Shared;
 using Shouldly;
 using Xunit;

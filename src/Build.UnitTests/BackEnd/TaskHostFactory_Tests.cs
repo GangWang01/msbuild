@@ -9,6 +9,7 @@ using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
 using Microsoft.Build.UnitTests;
 using Microsoft.Build.UnitTests.BackEnd;
+using Microsoft.Build.UnitTests.Shared;
 
 using Shouldly;
 using Xunit;

@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Build.Exceptions;
+using Microsoft.Build.UnitTests.Shared;
 
 using Xunit;
 using Xunit.Abstractions;

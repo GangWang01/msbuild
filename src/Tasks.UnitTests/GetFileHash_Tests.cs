@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using Microsoft.Build.Tasks;
 using Microsoft.Build.Tasks.UnitTests.TestResources;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Shouldly;
 using Xunit;

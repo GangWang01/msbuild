@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

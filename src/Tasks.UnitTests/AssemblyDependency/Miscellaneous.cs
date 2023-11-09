@@ -13,6 +13,7 @@ using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Tasks;
 using Microsoft.Build.Tasks.AssemblyDependency;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Microsoft.Win32;
 using Shouldly;

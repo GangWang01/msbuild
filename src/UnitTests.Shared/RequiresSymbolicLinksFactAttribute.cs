@@ -7,7 +7,7 @@ using System.IO;
 using Microsoft.Build.Shared;
 using Xunit;
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     /// <summary>
     /// A custom <see cref="FactAttribute"/> that skips the test if the OS doesn't support creating symlinks.

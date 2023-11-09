@@ -5,6 +5,7 @@ using System;
 using System.Configuration;
 using System.IO;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 
 #pragma warning disable 436
 

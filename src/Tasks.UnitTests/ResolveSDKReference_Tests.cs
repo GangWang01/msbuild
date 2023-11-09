@@ -9,6 +9,7 @@ using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Tasks;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Shouldly;
 using Xunit;
@@ -21,7 +22,7 @@ namespace Microsoft.Build.UnitTests.ResolveSDKReference_Tests
 {
     public class ResolveSDKReferenceTestFixture
     {
-        private Microsoft.Build.UnitTests.MockEngine.GetStringDelegate _resourceDelegate = new Microsoft.Build.UnitTests.MockEngine.GetStringDelegate(AssemblyResources.GetString);
+        private Microsoft.Build.UnitTests.Shared.MockEngine.GetStringDelegate _resourceDelegate = new Microsoft.Build.UnitTests.Shared.MockEngine.GetStringDelegate(AssemblyResources.GetString);
 
         private readonly string _sdkPath = NativeMethodsShared.IsWindows
                                      ? @"c:\SDKDirectory\GoodTestSDK\2.0\"

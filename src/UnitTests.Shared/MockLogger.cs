@@ -17,7 +17,7 @@ using ProjectCollection = Microsoft.Build.Evaluation.ProjectCollection;
 
 #nullable disable
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     /*
      * Class:   MockLogger

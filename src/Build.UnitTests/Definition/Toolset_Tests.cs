@@ -11,6 +11,7 @@ using Microsoft.Build.Execution;
 using Microsoft.Build.Internal;
 using Microsoft.Build.Shared;
 using Microsoft.Build.UnitTests.BackEnd;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 using Xunit.NetCore.Extensions;
 

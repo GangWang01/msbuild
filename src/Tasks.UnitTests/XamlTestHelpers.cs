@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Xaml;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Tasks.Xaml;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.CSharp;
 using Xunit;
 

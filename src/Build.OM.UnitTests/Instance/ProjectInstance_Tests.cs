@@ -11,6 +11,7 @@ using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 using Xunit.Abstractions;
 using ForwardingLoggerRecord = Microsoft.Build.Logging.ForwardingLoggerRecord;

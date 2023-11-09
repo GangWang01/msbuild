@@ -19,7 +19,7 @@ using Shouldly;
 
 #nullable disable
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     public partial class TestEnvironment
     {

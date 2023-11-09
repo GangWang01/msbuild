@@ -5,6 +5,7 @@ using System.IO;
 
 using Microsoft.Build.Framework;
 using Microsoft.Build.Tasks;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Xunit;
 

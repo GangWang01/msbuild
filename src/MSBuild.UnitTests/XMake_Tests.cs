@@ -39,7 +39,7 @@ namespace Microsoft.Build.UnitTests
         public XMakeAppTests(ITestOutputHelper output)
         {
             _output = output;
-            _env = UnitTests.TestEnvironment.Create(_output);
+            _env = TestEnvironment.Create(_output);
         }
 
         private const string AutoResponseFileName = "MSBuild.rsp";
@@ -2526,7 +2526,7 @@ EndGlobal
         [InlineData("/v:quiet /bl", MessageImportance.Low)] // v:quiet but with binary logger so everything must be logged
         public void EndToEndMinimumMessageImportance(string arguments, MessageImportance expectedMinimumMessageImportance)
         {
-            using TestEnvironment testEnvironment = UnitTests.TestEnvironment.Create();
+            using TestEnvironment testEnvironment = TestEnvironment.Create();
 
             string projectContents = ObjectModelHelpers.CleanupFileContents(@"<Project>
 

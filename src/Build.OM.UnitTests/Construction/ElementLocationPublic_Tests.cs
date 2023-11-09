@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.Build.Construction;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using Xunit;
 

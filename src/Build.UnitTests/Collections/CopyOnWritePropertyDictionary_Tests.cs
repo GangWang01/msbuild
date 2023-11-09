@@ -3,6 +3,7 @@
 
 using System;
 using Microsoft.Build.Collections;
+using Microsoft.Build.UnitTests.Shared;
 
 using Shouldly;
 

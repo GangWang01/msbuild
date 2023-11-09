@@ -4,6 +4,7 @@
 using System.Linq;
 using System.Reflection;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using Xunit;
 

@@ -12,6 +12,7 @@ using System.Reflection;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Shouldly;
 #if FEATURE_WIN32_REGISTRY

@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Build.Collections;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

@@ -15,6 +15,7 @@ using Microsoft.Build.Construction;
 using Microsoft.Build.Graph;
 using Microsoft.Build.Graph.UnitTests;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 
 #nullable disable

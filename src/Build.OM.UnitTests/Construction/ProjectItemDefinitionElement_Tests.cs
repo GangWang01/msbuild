@@ -6,6 +6,7 @@ using System.Xml;
 
 using Microsoft.Build.Construction;
 using Microsoft.Build.Exceptions;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

@@ -4,6 +4,7 @@
 using System.Linq;
 using Microsoft.Build.Framework;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Xunit;
 

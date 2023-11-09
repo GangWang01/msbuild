@@ -13,6 +13,7 @@ using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
 using Microsoft.Build.UnitTests;
 using Microsoft.Build.UnitTests.BackEnd;
+using Microsoft.Build.UnitTests.Shared;
 using Shouldly;
 using SdkResolverContext = Microsoft.Build.Framework.SdkResolverContext;
 using SdkResult = Microsoft.Build.BackEnd.SdkResolution.SdkResult;

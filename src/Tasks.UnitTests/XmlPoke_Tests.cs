@@ -9,6 +9,7 @@ using System.Xml;
 
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Tasks;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 
 using Shouldly;

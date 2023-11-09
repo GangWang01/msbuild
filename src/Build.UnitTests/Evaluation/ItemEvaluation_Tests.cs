@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Internal;
 using Microsoft.Build.Shared;
+using Microsoft.Build.UnitTests.Shared;
 using Xunit;
 
 #nullable disable

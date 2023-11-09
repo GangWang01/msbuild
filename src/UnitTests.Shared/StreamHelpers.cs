@@ -5,7 +5,7 @@ using System.IO;
 
 #nullable disable
 
-namespace Microsoft.Build.UnitTests
+namespace Microsoft.Build.UnitTests.Shared
 {
     internal sealed class StreamHelpers
     {

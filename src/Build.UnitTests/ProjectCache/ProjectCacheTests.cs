@@ -18,6 +18,7 @@ using Microsoft.Build.Graph;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Unittest;
 using Microsoft.Build.UnitTests;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 using Shouldly;
 using Xunit;

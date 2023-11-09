@@ -13,6 +13,7 @@ using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
+using Microsoft.Build.UnitTests.Shared;
 using Microsoft.Build.Utilities;
 
 #if FEATURE_COMPILE_IN_TESTS
