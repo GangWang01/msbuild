@@ -63,7 +63,7 @@ namespace Microsoft.Build.UnitTests.Definition
 
         /// <summary>
         /// Get the item of type "i" using the item Xml fragment provided.
-        /// If there is more than one, fail. 
+        /// If there is more than one, fail.
         /// </summary>
         private static ProjectItem GetOneItemFromFragment(string fragment)
         {

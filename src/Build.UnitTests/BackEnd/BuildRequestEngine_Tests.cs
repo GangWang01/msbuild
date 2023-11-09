@@ -341,10 +341,13 @@ namespace Microsoft.Build.UnitTests.BackEnd
             string[] targets = new string[3] { "target1", "target2", "target3" };
             BuildRequest request = CreateNewBuildRequest(1, targets);
 
-            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized);
+            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized, true);
             _engine.InitializeForBuild(new NodeLoggingContext(_host.LoggingService, 0, false));
+            // We neeed to get the status changed AutoResetEvent returned to the non-signaled state correctly after each status change for verifying the engine status via waiting for a signal next time.
+            // Make sure it returns back to the non-signaled state.
+            VerifyEngineStatus(BuildRequestEngineStatus.Idle);
+
             _engine.SubmitBuildRequest(request);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Active);
 
             _engine.CleanupForBuild();
@@ -369,10 +372,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
             string[] targets = new string[3] { "target1", "target2", "target3" };
             BuildRequest request = CreateNewBuildRequest(1, targets);
 
-            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized);
+            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized, true);
             _engine.InitializeForBuild(new NodeLoggingContext(_host.LoggingService, 0, false));
+            VerifyEngineStatus(BuildRequestEngineStatus.Idle);
+
             _engine.SubmitBuildRequest(request);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Active);
 
             WaitForEvent(_requestCompleteEvent, "RequestComplete");
@@ -402,10 +406,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
             BuildRequest request = CreateNewBuildRequest(1, targets);
 
             // Kick it off
-            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized);
+            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized, true);
             _engine.InitializeForBuild(new NodeLoggingContext(_host.LoggingService, 0, false));
+            VerifyEngineStatus(BuildRequestEngineStatus.Idle);
+
             _engine.SubmitBuildRequest(request);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Active);
 
             // Wait for the new requests to be spawned by the builder
@@ -414,9 +419,6 @@ namespace Microsoft.Build.UnitTests.BackEnd
             Assert.Single(_newRequest_Request.BuildRequests[0].Targets);
             Assert.Equal("requiredTarget1", _newRequest_Request.BuildRequests[0].Targets[0]);
 
-            // Wait for a moment, because the build request engine thread may not have gotten around
-            // to going to the waiting state.
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Waiting);
 
             // Report a result to satisfy the build request
@@ -426,6 +428,8 @@ namespace Microsoft.Build.UnitTests.BackEnd
 
             // Continue the request.
             _engine.UnblockBuildRequest(new BuildRequestUnblocker(request.GlobalRequestId));
+
+            VerifyEngineStatus(BuildRequestEngineStatus.Active);
 
             // Wait for the original request to complete
             WaitForEvent(_requestCompleteEvent, "RequestComplete");
@@ -457,10 +461,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
             BuildRequest request = CreateNewBuildRequest(1, targets);
 
             // Kick it off
-            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized);
+            VerifyEngineStatus(BuildRequestEngineStatus.Uninitialized, true);
             _engine.InitializeForBuild(new NodeLoggingContext(_host.LoggingService, 0, false));
+            VerifyEngineStatus(BuildRequestEngineStatus.Idle);
+
             _engine.SubmitBuildRequest(request);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Active);
 
             // Wait for the request to generate the child request with the unresolved configuration
@@ -468,7 +473,6 @@ namespace Microsoft.Build.UnitTests.BackEnd
             Assert.Equal(Path.GetFullPath("OtherFile"), _newConfiguration_Config.ProjectFullPath);
             Assert.Equal("TestToolsVersion", _newConfiguration_Config.ToolsVersion);
             Assert.True(_newConfiguration_Config.WasGeneratedByNode);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Waiting);
 
             // Resolve the configuration
@@ -490,11 +494,12 @@ namespace Microsoft.Build.UnitTests.BackEnd
             // Continue the request
             _engine.UnblockBuildRequest(new BuildRequestUnblocker(request.GlobalRequestId));
 
+            VerifyEngineStatus(BuildRequestEngineStatus.Active);
+
             // Wait for the original request to complete
             WaitForEvent(_requestCompleteEvent, "RequestComplete");
             Assert.Equal(request, _requestComplete_Request);
             Assert.Equal(BuildResultCode.Success, _requestComplete_Result.OverallResult);
-            Thread.Sleep(250);
             VerifyEngineStatus(BuildRequestEngineStatus.Idle);
         }
 
@@ -510,11 +515,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
             return request;
         }
 
-        private void VerifyEngineStatus(BuildRequestEngineStatus expectedStatus)
+        private void VerifyEngineStatus(BuildRequestEngineStatus expectedStatus, bool isNotKickedOff = false)
         {
             IBuildRequestEngine engine = (IBuildRequestEngine)_host.GetComponent(BuildComponentType.RequestEngine);
 
-            if (engine.Status == expectedStatus)
+            if (isNotKickedOff && engine.Status == expectedStatus)
             {
                 return;
             }

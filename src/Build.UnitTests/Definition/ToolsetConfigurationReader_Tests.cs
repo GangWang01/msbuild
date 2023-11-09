@@ -116,7 +116,7 @@ namespace Microsoft.Build.UnitTests.Definition
         }
 
         /// <summary>
-        ///  Tests if ToolsetConfigurationReaderTests is successfully initialized from the config file and that msbuildOVerrideTasksPath 
+        ///  Tests if ToolsetConfigurationReaderTests is successfully initialized from the config file and that msbuildOVerrideTasksPath
         ///  is correctly read in when the value is empty.
         /// </summary>
         [Fact]
@@ -195,7 +195,7 @@ namespace Microsoft.Build.UnitTests.Definition
         #region "Invalid cases (exception is expected to be thrown)"
 
         /// <summary>
-        /// name attribute is missing from toolset element 
+        /// name attribute is missing from toolset element
         /// </summary>
         [Fact]
         public void ToolsVersionTest_NameNotSpecified()
@@ -251,7 +251,7 @@ namespace Microsoft.Build.UnitTests.Definition
             });
         }
         /// <summary>
-        /// empty toolset element 
+        /// empty toolset element
         /// </summary>
         [Fact]
         public void ToolsVersionTest_EmptyElement()

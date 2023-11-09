@@ -38,7 +38,7 @@ namespace Microsoft.Build.UnitTests
         }
 
         /// <summary>
-        /// AssignLinkMetadata should behave nicely when there is an item with an 
+        /// AssignLinkMetadata should behave nicely when there is an item with an
         /// itemspec that contains invalid path characters.
         /// </summary>
         [Fact]
@@ -77,14 +77,14 @@ namespace Microsoft.Build.UnitTests
             Assert.Single(t.OutputItems);
             Assert.Equal(item.ItemSpec, t.OutputItems[0].ItemSpec);
 
-            // Link metadata should have been added by the task, and OriginalItemSpec was added by the copy 
+            // Link metadata should have been added by the task, and OriginalItemSpec was added by the copy
             Assert.Equal(item.MetadataCount + 2, t.OutputItems[0].MetadataCount);
             Assert.Equal(Path.Combine("SubFolder", "a.cs"), t.OutputItems[0].GetMetadata("Link"));
         }
 
         /// <summary>
-        /// AssignLinkMetadata should behave nicely when there is an item with an 
-        /// itemspec that contains invalid path characters, and still successfully 
+        /// AssignLinkMetadata should behave nicely when there is an item with an
+        /// itemspec that contains invalid path characters, and still successfully
         /// output any items that aren't problematic.
         /// </summary>
         [Fact]
@@ -104,7 +104,7 @@ namespace Microsoft.Build.UnitTests
             Assert.Single(t.OutputItems);
             Assert.Equal(item2.ItemSpec, t.OutputItems[0].ItemSpec);
 
-            // Link metadata should have been added by the task, and OriginalItemSpec was added by the copy 
+            // Link metadata should have been added by the task, and OriginalItemSpec was added by the copy
             Assert.Equal(item2.MetadataCount + 2, t.OutputItems[0].MetadataCount);
             Assert.Equal(Path.Combine("SubFolder", "a.cs"), t.OutputItems[0].GetMetadata("Link"));
         }
@@ -129,7 +129,7 @@ namespace Microsoft.Build.UnitTests
         }
 
         /// <summary>
-        /// AssignLinkMetadata should not set Link if the item is outside the 
+        /// AssignLinkMetadata should not set Link if the item is outside the
         /// defining project's cone
         /// </summary>
         [Fact]

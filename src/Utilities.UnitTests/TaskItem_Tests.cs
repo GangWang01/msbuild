@@ -300,8 +300,8 @@ namespace Microsoft.Build.UnitTests
             });
         }
         /// <summary>
-        /// Create a TaskItem with a null metadata value -- this is allowed, but 
-        /// internally converted to the empty string. 
+        /// Create a TaskItem with a null metadata value -- this is allowed, but
+        /// internally converted to the empty string.
         /// </summary>
         [Fact]
         public void CreateTaskItemWithNullMetadata()
@@ -314,8 +314,8 @@ namespace Microsoft.Build.UnitTests
         }
 
         /// <summary>
-        /// Set metadata value to null value -- this is allowed, but 
-        /// internally converted to the empty string. 
+        /// Set metadata value to null value -- this is allowed, but
+        /// internally converted to the empty string.
         /// </summary>
         [Fact]
         public void SetNullMetadataValue()
@@ -346,7 +346,7 @@ namespace Microsoft.Build.UnitTests
 
 #if FEATURE_APPDOMAIN
         /// <summary>
-        /// Test that task items can be successfully constructed based on a task item from another appdomain.  
+        /// Test that task items can be successfully constructed based on a task item from another appdomain.
         /// </summary>
         [Fact]
         public void RemoteTaskItem()
@@ -408,7 +408,7 @@ namespace Microsoft.Build.UnitTests
         }
 
         /// <summary>
-        /// Miniature class to be remoted to another appdomain that just creates some TaskItems and makes them available for returning. 
+        /// Miniature class to be remoted to another appdomain that just creates some TaskItems and makes them available for returning.
         /// </summary>
         private sealed class TaskItemCreator
 #if FEATURE_APPDOMAIN
@@ -425,7 +425,7 @@ namespace Microsoft.Build.UnitTests
             }
 
             /// <summary>
-            /// Creates task items 
+            /// Creates task items
             /// </summary>
             public void Run(string[] includes, IDictionary<string, string> metadataToAdd)
             {

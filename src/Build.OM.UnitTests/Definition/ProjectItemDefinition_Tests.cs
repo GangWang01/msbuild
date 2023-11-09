@@ -457,7 +457,7 @@ ObjectModelHelpers.CleanupFileContents(
 
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_BuiltInProhibitedOnItemDefinitionMetadataCondition()
@@ -479,7 +479,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_UnquotedBuiltInProhibitedOnItemDefinitionMetadataCondition()
@@ -501,7 +501,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_BuiltInProhibitedOnItemDefinitionCondition()
@@ -523,7 +523,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_BuiltInProhibitedOnItemDefinitionGroupCondition()
@@ -545,7 +545,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_QualifiedBuiltInProhibitedOnItemDefinitionMetadataCondition()
@@ -567,7 +567,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_QualifiedBuiltInProhibitedOnItemDefinitionCondition()
@@ -589,7 +589,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_QualifiedBuiltInProhibitedOnItemDefinitionGroupCondition()
@@ -611,7 +611,7 @@ ObjectModelHelpers.CleanupFileContents(
         }
         /// <summary>
         /// Built-in metadata is prohibited in item definition conditions.
-        /// Ideally it would also be late evaluated, but that's too difficult. 
+        /// Ideally it would also be late evaluated, but that's too difficult.
         /// </summary>
         [Fact]
         public void ExpandBuiltInMetadataAtPointOfUse_UnquotedQualifiedBuiltInProhibitedOnItemDefinitionCondition()

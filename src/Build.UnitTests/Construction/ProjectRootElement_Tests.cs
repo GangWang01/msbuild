@@ -61,7 +61,7 @@ bar", false)]
             var projectContents =
                 @"<Project ToolsVersion='msbuilddefaulttoolsversion' DefaultTargets='Build' xmlns='msbuildnamespace'>
                   <!--Initial Comment-->
-                       
+
                   <!--Ending Comment-->
                 </Project>
                 ";
@@ -92,7 +92,7 @@ bar", false)]
             var projectContents =
                 @"<Project ToolsVersion='msbuilddefaulttoolsversion' DefaultTargets='Build' xmlns='msbuildnamespace'>
                   <!--Initial Comment-->
-                       
+
                   <!--Ending Comment-->
                 </Project>
                 ";

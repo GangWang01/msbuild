@@ -152,7 +152,7 @@ namespace Microsoft.Build.Tasks.UnitTests
 
         /// <summary>
         /// In this case,
-        /// - An app.config is passed in that has dependentAssembly section with probing element but without 
+        /// - An app.config is passed in that has dependentAssembly section with probing element but without
         ///   assemblyIdentity or bindingRedirect elements.
         /// Expected:
         /// - No warning
@@ -166,7 +166,7 @@ namespace Microsoft.Build.Tasks.UnitTests
             // Arrange
             string appConfigFile = WriteAppConfigRuntimeSection(
 @"<assemblyBinding xmlns=""urn:schemas-microsoft-com:asm.v1"">
-   <probing privatePath = 'bin;bin2\subbin;bin3'/>  
+   <probing privatePath = 'bin;bin2\subbin;bin3'/>
 </assemblyBinding>");
             TaskItemMock redirect = new TaskItemMock("System, Version=10.0.0.0, Culture=Neutral, PublicKeyToken='b77a5c561934e089'", "40.0.0.0");
 
@@ -192,7 +192,7 @@ namespace Microsoft.Build.Tasks.UnitTests
         {
             // Arrange
             string appConfigFile = WriteAppConfigRuntimeSection(
-@"<assemblyBinding xmlns=""urn:schemas-microsoft-com:asm.v1"" appliesTo=""v1.0.3705""> 
+@"<assemblyBinding xmlns=""urn:schemas-microsoft-com:asm.v1"" appliesTo=""v1.0.3705"">
 </assemblyBinding>");
             TaskItemMock redirect = new TaskItemMock("System, Version=10.0.0.0, Culture=Neutral, PublicKeyToken='b77a5c561934e089'", "40.0.0.0");
 

@@ -124,11 +124,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
 
         /// <summary>
         /// Tests this case:
-        /// 
+        ///
         /// <Target Name="x"
         ///         Inputs="@(Items);c.cs"
         ///         Outputs="@(Items->'%(Filename).dll')" />
-        /// 
+        ///
         /// If Items = [a.cs;b.cs], and only b.cs is out of date w/r/t its
         /// correlated output b.dll, then we should only build "b" incrementally.
         /// </summary>
@@ -161,11 +161,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
 
         /// <summary>
         /// Tests this case:
-        /// 
+        ///
         /// <Target Name="x"
         ///         Inputs="@(Items)"
         ///         Outputs="@(Items->'%(Filename).dll');@(Items->'%(Filename).xml')" />
-        /// 
+        ///
         /// If Items = [a.cs;b.cs;c.cs], and only b.cs is out of date w/r/t its
         /// correlated outputs (dll or xml), then we should only build "b" incrementally.
         /// </summary>
@@ -204,11 +204,11 @@ namespace Microsoft.Build.UnitTests.BackEnd
 
         /// <summary>
         /// Tests this case:
-        /// 
+        ///
         /// <Target Name="x"
         ///         Inputs="@(Items);@(MoreItems)"
         ///         Outputs="@(Items->'%(Filename).dll');@(MoreItems->'%(Filename).xml')" />
-        /// 
+        ///
         /// If Items = [a.cs;b.cs;c.cs], and only b.cs is out of date w/r/t its
         /// correlated outputs (dll or xml), then we should only build "b" incrementally.
         /// </summary>
@@ -444,24 +444,24 @@ namespace Microsoft.Build.UnitTests.BackEnd
   </Target>
 
   <Target Name='Setup'>
-        <WriteLinesToFile 
+        <WriteLinesToFile
             File='A'
             Lines='A'
             Overwrite='true'/>
-            
-        <WriteLinesToFile 
+
+        <WriteLinesToFile
             File='B.out'
             Lines='B.out'
             Overwrite='true'/>
 
         <Exec Command='sleep.exe 1' />
 
-        <WriteLinesToFile 
+        <WriteLinesToFile
             File='B'
             Lines='B'
             Overwrite='true'/>
-            
-        <WriteLinesToFile 
+
+        <WriteLinesToFile
             File='A.out'
             Lines='A.out'
             Overwrite='true'/>

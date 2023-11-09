@@ -86,7 +86,7 @@ namespace Microsoft.Build.UnitTests
 
         /*
          * Method:  CheckComReferenceAttributeVerificationForNameItems
-         * 
+         *
          * Checks if verification of Com reference item metadata works properly
          */
         [Fact]
@@ -149,7 +149,7 @@ namespace Microsoft.Build.UnitTests
 
         /*
          * Method:  CheckComReferenceAttributeInitializationForNameItems
-         * 
+         *
          * Checks if missing optional attributes for COM name references get initialized correctly
          */
         [Fact]
@@ -182,7 +182,7 @@ namespace Microsoft.Build.UnitTests
 
         /*
          * Method:  CheckComReferenceAttributeInitializationForFileItems
-         * 
+         *
          * Checks if missing optional attributes for COM file references get initialized correctly
          */
         [Fact]
@@ -396,7 +396,7 @@ namespace Microsoft.Build.UnitTests
             retValue = rcr.IsExistingDependencyReference(notInProjectAttr, out referenceInfo);
             Assert.True(!retValue && referenceInfo == null); // "not in project ref should not be found"
 
-            // Now, try to resolve a non-existent ComAssemblyReference. 
+            // Now, try to resolve a non-existent ComAssemblyReference.
             string path;
             IComReferenceResolver resolver = (IComReferenceResolver)rcr;
             Assert.False(resolver.ResolveComAssemblyReference("MyAssembly", out path));
