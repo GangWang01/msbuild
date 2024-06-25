@@ -41,6 +41,7 @@
     <SystemTextJsonVersion>8.0.3</SystemTextJsonVersion>
     <SystemThreadingChannelsVersion>8.0.0</SystemThreadingChannelsVersion>
     <SystemThreadingTasksDataflowVersion>8.0.0</SystemThreadingTasksDataflowVersion>
+    <XunitAbstractionsVersion>2.0.3</XunitAbstractionsVersion>
   </PropertyGroup>
   <!-- Toolset Dependencies -->
   <PropertyGroup>

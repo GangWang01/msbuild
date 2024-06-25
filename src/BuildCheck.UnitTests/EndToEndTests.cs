@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Threading;
 using System.Xml;
 using Microsoft.Build.Shared;
 using Microsoft.Build.UnitTests;
@@ -31,7 +32,7 @@ public class EndToEndTests : IDisposable
 
     public void Dispose() => _env.Dispose();
 
-    [Theory(Skip = "https://github.com/dotnet/msbuild/issues/10036")]
+    [Theory]
     [InlineData(true, true)]
     [InlineData(false, true)]
     [InlineData(false, false)]
@@ -118,6 +119,113 @@ public class EndToEndTests : IDisposable
         _env.SetEnvironmentVariable("MSBUILDLOGPROPERTIESANDITEMSAFTEREVALUATION", "1");
         string output = RunnerUtilities.ExecBootstrapedMSBuild(
             $"{Path.GetFileName(projectFile.Path)} /m:1 -nr:False -restore" +
+            (analysisRequested ? " -analyze" : string.Empty), out bool success, false, _env.Output, timeoutMilliseconds: 120_000);
+        _env.Output.WriteLine(output);
+        success.ShouldBeTrue();
+        // The analyzer warnings should appear - but only if analysis was requested.
+        if (analysisRequested)
+        {
+            output.ShouldContain("BC0101");
+            output.ShouldContain("BC0102");
+        }
+        else
+        {
+            output.ShouldNotContain("BC0101");
+            output.ShouldNotContain("BC0102");
+        }
+    }
+
+    [Fact]
+    public void InvestigateSampleAnalyzerIntegrationTest()
+    {
+        bool buildInOutOfProcessNode = false;
+        bool analysisRequested = true;
+        Thread.Sleep(10_000);
+        System.Diagnostics.Debugger.Break();
+        var attached = System.Diagnostics.Debugger.Launch();
+        _env.Output.WriteLine($"Debugger is attached { attached }");
+        Console.WriteLine($"Debugger is attached {attached}");
+        TransientTestFolder workFolder = _env.CreateFolder(createFolder: true);
+        TransientTestFile testFile = _env.CreateFile(workFolder, "somefile");
+
+        string contents = $"""
+            <Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Hello">
+                
+                <PropertyGroup>
+                    <OutputType>Exe</OutputType>
+                    <TargetFramework>net8.0</TargetFramework>
+                    <ImplicitUsings>enable</ImplicitUsings>
+                    <Nullable>enable</Nullable>
+                </PropertyGroup>
+                  
+                <PropertyGroup Condition="$(Test) == true">
+                    <TestProperty>Test</TestProperty>
+                </PropertyGroup>
+                 
+                <Target Name="Hello">
+                    <Message Importance="High" Condition="$(Test2) == true" Text="XYZABC" />
+                    <Copy SourceFiles="{testFile.Path}" DestinationFolder="{workFolder.Path}" />
+                    <MSBuild Projects=".\FooBar-Copy.csproj" Targets="Hello" />
+                </Target>
+                
+            </Project>
+            """;
+
+        string contents2 = $"""
+            <Project Sdk="Microsoft.NET.Sdk">
+                <PropertyGroup>
+                    <OutputType>Exe</OutputType>
+                    <TargetFramework>net8.0</TargetFramework>
+                    <ImplicitUsings>enable</ImplicitUsings>
+                    <Nullable>enable</Nullable>
+                </PropertyGroup>
+                                 
+                <PropertyGroup Condition="$(Test) == true">
+                    <TestProperty>Test</TestProperty>
+                </PropertyGroup>
+                                
+                <ItemGroup>
+                    <Reference Include="bin/foo.dll" />
+                </ItemGroup>
+                                
+                <Target Name="Hello">
+                    <Message Importance="High" Condition="$(Test2) == true" Text="XYZABC" />
+                    <Copy SourceFiles="{testFile.Path}" DestinationFolder="{workFolder.Path}" />
+                </Target>
+                               
+            </Project>
+            """;
+        TransientTestFile projectFile = _env.CreateFile(workFolder, "FooBar.csproj", contents);
+        TransientTestFile projectFile2 = _env.CreateFile(workFolder, "FooBar-Copy.csproj", contents2);
+
+        TransientTestFile config = _env.CreateFile(workFolder, ".editorconfig",
+            """
+            root=true
+
+            [*.csproj]
+            build_check.BC0101.IsEnabled=true
+            build_check.BC0101.Severity=warning
+
+            build_check.BC0102.IsEnabled=true
+            build_check.BC0102.Severity=warning
+
+            build_check.COND0543.IsEnabled=false
+            build_check.COND0543.Severity=Error
+            build_check.COND0543.EvaluationAnalysisScope=AnalyzedProjectOnly
+            build_check.COND0543.CustomSwitch=QWERTY
+
+            build_check.BLA.IsEnabled=false
+            """);
+
+        // OSX links /var into /private, which makes Path.GetTempPath() return "/var..." but Directory.GetCurrentDirectory return "/private/var...".
+        // This discrepancy breaks path equality checks in analyzers if we pass to MSBuild full path to the initial project.
+        // See if there is a way of fixing it in the engine - tracked: https://github.com/orgs/dotnet/projects/373/views/1?pane=issue&itemId=55702688.
+        _env.SetCurrentDirectory(Path.GetDirectoryName(projectFile.Path));
+
+        _env.SetEnvironmentVariable("MSBUILDNOINPROCNODE", buildInOutOfProcessNode ? "1" : "0");
+        _env.SetEnvironmentVariable("MSBUILDLOGPROPERTIESANDITEMSAFTEREVALUATION", "1");
+        string output = RunnerUtilities.ExecBootstrapedMSBuild(
+            $"{Path.GetFileName(projectFile.Path)} /m:1 -nr:False -restore /bl" +
             (analysisRequested ? " -analyze" : string.Empty), out bool success, false, _env.Output, timeoutMilliseconds: 120_000);
         _env.Output.WriteLine(output);
         success.ShouldBeTrue();

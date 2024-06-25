@@ -10,5 +10,6 @@
     <!-- Implicit references to xunit.core and xunit.assert in test projects by Arcade
          cause restore failures if PackageVersion is in the normal .props file. -->
     <PackageReference Include="xunit.core" VersionOverride="$(XUnitVersion)" />
+    <PackageReference Include="xunit.abstractions" VersionOverride="$(XunitAbstractionsVersion)" />
   </ItemGroup>
 </Project>

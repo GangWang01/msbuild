@@ -4,12 +4,12 @@
       {
         "name": "WSL-Ubuntu",
         "type": "wsl",
-        "wslDistribution": "Ubuntu"
+        "wslDistribution": "Ubuntu-22.04"
       },
       {
-        "name": "docker dotnet 7.0",
+        "name": "docker dotnet 8.0",
         "type": "docker",
-        "dockerImage": "mcr.microsoft.com/dotnet/sdk:7.0"
+        "dockerImage": "mcr.microsoft.com/dotnet/sdk:8.0"
       }
     ]
 }

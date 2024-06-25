@@ -205,6 +205,7 @@ Samples/MultiprocessBuild/PortableTask.dll
 
 # Dotnet Core SDK
 .dotnet/
+.dotnet_local/
 
 # Repo nuget cache
 .packages/
